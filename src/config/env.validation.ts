@@ -1,0 +1,37 @@
+import * as Joi from 'joi';
+
+export default Joi.object({
+  NODE_ENV: Joi.string()
+    .valid('development', 'production', 'example')
+    .default('development'),
+  PORT: Joi.number().default(3006),
+  DATABASE_URL: Joi.string().required(),
+  JWT_SECRET: Joi.string().required(),
+  JWT_TOKEN_AUDIENCE: Joi.string().required(),
+  JWT_TOKEN_ISSUER: Joi.string().required(),
+  JWT_ACCESS_TOKEN_TTL: Joi.number().required(),
+  AWS_REGION: Joi.string().optional(),
+  AWS_ACCESS_KEY_ID: Joi.string().optional(),
+  AWS_SECRET_ACCESS_KEY: Joi.string().optional(),
+  AWS_BUCKET_NAME: Joi.string().optional(),
+  AWS_BUCKET_EXPIRE_TIME: Joi.number().optional(),
+  MAX_FILE_SIZE: Joi.number().optional(),
+  OTP_TOKEN_TTL: Joi.number().optional(),
+  OTP_TOKEN_KEY: Joi.string().optional(),
+  STEADFAST_API_KEY: Joi.string().required(),
+  STEADFAST_API_SECRET: Joi.string().required(),
+  STEADFAST_BASE_URL: Joi.string().required(),
+  SMTP_HOST: Joi.string().required(),
+  SMTP_PORT: Joi.number().required(),
+  SMTP_SECURE: Joi.boolean().required(),
+  SMTP_USER: Joi.string().required(),
+  SMTP_PASS: Joi.string().required(),
+  SMTP_FROM: Joi.string().required(),
+  GUEST_COOKIE_TTL_MS: Joi.number().required(),
+  GID_COOKIE: Joi.string().required(),
+  PRODUCTION_DOMAIN: Joi.string().required(),
+  FRONTEND_URL: Joi.string().optional(),
+  SSLCOMMERZ_STORE_ID: Joi.string().optional(),
+  SSLCOMMERZ_STORE_PASSWORD: Joi.string().optional(),
+  BASE_URL: Joi.string().optional(),
+});

@@ -1,0 +1,24 @@
+import { Module } from '@nestjs/common';
+import { BrandService } from './brand.service';
+import { BrandController } from './brand.controller';
+import { MongooseModule } from '@nestjs/mongoose';
+import { Brand, BrandSchema } from '../../../common/models/brand.schema';
+import { CommonModule } from 'src/common/common.module';
+import { RoleModule } from '../role/role.module';
+
+@Module({
+  controllers: [BrandController],
+  providers: [BrandService],
+  exports: [BrandService],
+  imports: [
+    RoleModule,
+    CommonModule,
+    MongooseModule.forFeature([
+      {
+        name: Brand.name,
+        schema: BrandSchema,
+      },
+    ]),
+  ],
+})
+export class BrandModule {}

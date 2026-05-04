@@ -1,0 +1,32 @@
+import { Type } from 'class-transformer';
+import { IsOptional, IsString } from 'class-validator';
+
+export class GetProductUpdateRequestsQueryDto {
+  @Type(() => Number)
+  @IsOptional()
+  page: number;
+
+  @Type(() => Number)
+  @IsOptional()
+  limit: number;
+
+  @IsOptional()
+  search: string;
+
+  @IsOptional()
+  category: string;
+
+  @IsOptional()
+  seller: string;
+
+  @IsOptional()
+  date: string;
+
+  @IsOptional()
+  @IsString()
+  sortOrder: string;
+
+  @IsOptional()
+  @IsString()
+  sortBy: string;
+}
